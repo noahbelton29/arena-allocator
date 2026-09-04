@@ -1,0 +1,61 @@
+CompileFlags:
+  Add:
+    - -Wall
+    - -Wextra
+    - -Wpedantic
+    - -Wshadow
+    - -Wnon-virtual-dtor
+    - -Wold-style-cast
+    - -Wcast-align
+    - -Wunused
+    - -Woverloaded-virtual
+    - -Wconversion
+    - -Wsign-conversion
+    - -Wnull-dereference
+    - -Wdouble-promotion
+    - -Wformat=2
+    - -std=c++20
+  Remove:
+    - -W*
+    - -m*
+  Compiler: clang++
+
+Index:
+  Background: Build
+  StandardLibrary: Yes
+
+Diagnostics:
+  ClangTidy:
+    Add:
+      - modernize-*
+      - performance-*
+      - bugprone-*
+      - readability-*
+      - cppcoreguidelines-*
+      - portability-*
+    Remove:
+      - modernize-use-trailing-return-type
+      - readability-magic-numbers
+      - cppcoreguidelines-avoid-magic-numbers
+      - readability-identifier-length
+      - cppcoreguidelines-pro-bounds-pointer-arithmetic
+      - cppcoreguidelines-avoid-non-const-global-variables
+    CheckOptions:
+      readability-braces-around-statements.ShortStatementLines: 0
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
+  Suppress:
+    - drv_unknown_argument
+
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+  Designators: Yes
+  BlockEnd: No
+
+Hover:
+  ShowAKA: Yes
+
+Completion:
+  AllScopes: Yes
